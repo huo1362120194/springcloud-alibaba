@@ -1,0 +1,23 @@
+server:
+  port: 9004
+spring:
+  application:
+    name: cloud-alibaba-consumer-9004
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+      config:
+        server-addr: 127.0.0.1:8848
+        file-extension: yaml
+        group: MICAH_GROUP
+        namespace: 96b8b84f-89e1-4f43-a3d2-dbc8eb11c72d
+    sentinel:
+      transport:
+        port: 8719
+        dashboard: 127.0.0.1:8080
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
