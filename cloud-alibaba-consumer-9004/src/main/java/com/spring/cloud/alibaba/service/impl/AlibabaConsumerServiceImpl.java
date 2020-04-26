@@ -2,7 +2,7 @@ package com.spring.cloud.alibaba.service.impl;
 
 import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import com.spring.cloud.alibaba.service.AlibabaConsumerService;
-import com.spring.cloud.alibaba.service.ConsumerFeignService;
+import com.spring.cloud.alibaba.service.AlibabaConsumerFeignService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -18,7 +18,7 @@ public class AlibabaConsumerServiceImpl implements AlibabaConsumerService {
     private String country;
 
     @Autowired
-    private ConsumerFeignService consumerFeignService;
+    private AlibabaConsumerFeignService alibabaConsumerFeignService;
 
     @SentinelResource(
             value = "consumer",
@@ -39,7 +39,7 @@ public class AlibabaConsumerServiceImpl implements AlibabaConsumerService {
     @Override
     public Map user() {
         Map map = new HashMap();
-        Map result = consumerFeignService.user();
+        Map result = alibabaConsumerFeignService.user();
         map.put("result",result);
         return map;
     }
