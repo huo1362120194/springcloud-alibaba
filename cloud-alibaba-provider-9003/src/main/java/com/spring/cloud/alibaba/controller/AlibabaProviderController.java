@@ -1,17 +1,19 @@
 package com.spring.cloud.alibaba.controller;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
-@RestController
+@Controller
 @RequestMapping("/provider")
 public class AlibabaProviderController {
 
     @RequestMapping("/query")
+    @ResponseBody
     public Map query(){
         Map map = new HashMap();
         map.put("result", UUID.randomUUID().toString());
@@ -19,6 +21,7 @@ public class AlibabaProviderController {
     }
 
     @RequestMapping("/user")
+    @ResponseBody
     public Map user(){
         Map map = new HashMap();
         map.put("user", "xiaoxiao: " + UUID.randomUUID().toString());

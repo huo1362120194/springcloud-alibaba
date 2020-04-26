@@ -14,8 +14,14 @@ spring:
         namespace: 96b8b84f-89e1-4f43-a3d2-dbc8eb11c72d
     sentinel:
       transport:
-        port: 8719
+        port: 8720
         dashboard: 127.0.0.1:8080
+      eager: true
+      filter:
+        url-patterns: /**
+feign:
+  sentinel:
+    enabled: true
 management:
   endpoints:
     web:

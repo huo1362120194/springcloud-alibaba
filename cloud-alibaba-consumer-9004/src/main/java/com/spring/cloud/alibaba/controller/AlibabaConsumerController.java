@@ -1,5 +1,7 @@
 package com.spring.cloud.alibaba.controller;
 
+import com.spring.cloud.alibaba.service.AlibabaConsumerService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,15 +23,17 @@ public class AlibabaConsumerController {
     @Resource
     private RestTemplate restTemplate;
 
-    @Value("${country:}")
-    private String country;
+    @Autowired
+    private AlibabaConsumerService alibabaConsumerService;
 
     @RequestMapping("/query")
     public Map query(){
-        Map map = new HashMap();
-        map.put("country",country);
-        map.put("result", UUID.randomUUID().toString());
-        return map;
+        return alibabaConsumerService.query();
+    }
+
+    @RequestMapping("/user")
+    public Map user(){
+        return alibabaConsumerService.user();
     }
 
     @RequestMapping("/get/user")
