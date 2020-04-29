@@ -23,6 +23,7 @@ public class AlibabaProviderController {
     @RequestMapping("/user")
     @ResponseBody
     public Map user(){
+        //int i = 1/0;
         Map map = new HashMap();
         map.put("user", "xiaoxiao: " + UUID.randomUUID().toString());
         return map;

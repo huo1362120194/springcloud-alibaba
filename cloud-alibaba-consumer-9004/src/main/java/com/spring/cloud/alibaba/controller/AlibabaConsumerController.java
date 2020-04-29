@@ -36,8 +36,8 @@ public class AlibabaConsumerController {
         return alibabaConsumerService.user();
     }
 
-    @RequestMapping("/get/user")
-    public Map get(){
+    @RequestMapping("/getUser")
+    public Map getUser(){
         Map map = restTemplate.postForObject(PROVIDER_URL + "/provider/user", null, Map.class);
         return map;
     }

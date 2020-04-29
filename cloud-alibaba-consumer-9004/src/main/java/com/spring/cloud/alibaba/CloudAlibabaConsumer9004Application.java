@@ -5,6 +5,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 
+/**
+ * nacos 1.1.4
+ * sentinel 1.7.1
+ */
 @SpringBootApplication
 @EnableDiscoveryClient
 @EnableFeignClients
