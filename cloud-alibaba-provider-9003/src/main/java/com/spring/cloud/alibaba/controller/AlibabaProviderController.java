@@ -19,9 +19,11 @@ public class AlibabaProviderController {
 
     @RequestMapping("/query")
     @ResponseBody
-    public Map query(){
+    public Map query(@RequestParam("id") Integer id){
         Map map = new HashMap();
+        User u = userService.findUserById(id);
         map.put("result", UUID.randomUUID().toString());
+        map.put("user", u);
         return map;
     }
 

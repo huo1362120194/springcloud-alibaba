@@ -6,6 +6,7 @@ import com.spring.cloud.alibaba.service.AlibabaConsumerService;
 import com.spring.cloud.alibaba.service.AlibabaConsumerFeignService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -14,6 +15,7 @@ import java.util.Map;
 import java.util.UUID;
 
 @Service
+@RefreshScope
 public class AlibabaConsumerServiceImpl implements AlibabaConsumerService {
 
     @Value("${country:}")

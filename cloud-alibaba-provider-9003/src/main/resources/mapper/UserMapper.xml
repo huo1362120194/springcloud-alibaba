@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.spring.cloud.alibaba.mapper.UserMapper">
+    <select id="findUserById" parameterType="int" resultType="com.spring.cloud.alibaba.entity.User">
+		 SELECT * FROM User WHERE id = #{id}
+	</select>
+    <update id="updateUser" parameterType="com.spring.cloud.alibaba.entity.User">
+        update user set name=#{name},age=#{age} where id=#{id}
+    </update>
+    <insert id="create" parameterType="com.spring.cloud.alibaba.entity.User">
+        insert into user set name=#{name},age=#{age}
+    </insert>
+    <delete id="deleteUserById" parameterType="int">
+        DELETE FROM USER WHERE id=#{id}
+    </delete>
+</mapper>

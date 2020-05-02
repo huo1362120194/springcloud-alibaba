@@ -19,7 +19,7 @@ spring:
 #        namespace: 96b8b84f-89e1-4f43-a3d2-dbc8eb11c72d
     alibaba:
       seata:
-        tx-service-group: ${spring.application.name}
+        tx-service-group: micah_tx_group
 #  zipkin:
 #    url: http://localhost:9411/api/v2/spans
 #    connectTimeout: 5000
@@ -45,3 +45,10 @@ management:
     web:
       exposure:
         include: '*'
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+    default-fetch-size: 100
+    default-statement-timeout: 3000
+
