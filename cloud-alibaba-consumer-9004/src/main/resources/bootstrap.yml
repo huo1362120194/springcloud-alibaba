@@ -3,6 +3,11 @@ server:
 spring:
   application:
     name: cloud-alibaba-consumer-9004
+  datasource:
+    url: jdbc:mysql://localhost:3306/micah?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: root
   cloud:
     nacos:
       discovery:
@@ -10,18 +15,31 @@ spring:
       config:
         server-addr: 127.0.0.1:8848
         file-extension: yaml
-        group: MICAH_GROUP
-        namespace: 96b8b84f-89e1-4f43-a3d2-dbc8eb11c72d
-    sentinel:
-      transport:
-        port: 8720
-        dashboard: 127.0.0.1:8080
-      eager: true
-      filter:
-        url-patterns: /**
-feign:
-  sentinel:
-    enabled: true
+#        group: MICAH_GROUP
+#        namespace: 96b8b84f-89e1-4f43-a3d2-dbc8eb11c72d
+    alibaba:
+      seata:
+        tx-service-group: ${spring.application.name}
+#  zipkin:
+#    url: http://localhost:9411/api/v2/spans
+#    connectTimeout: 5000
+#    readTimeout: 10000
+#    base-url: http://localhost:9411
+#    # 让nacos将它当作一个url，而不是服务名
+#    discovery-client-enabled: false
+#  sleuth:
+#    sampler:
+#      probability: 1.0
+#    sentinel:
+#      transport:
+#        port: 8720
+#        dashboard: 127.0.0.1:8080
+#      eager: true
+#      filter:
+#        url-patterns: /**
+#feign:
+#  sentinel:
+#    enabled: true
 management:
   endpoints:
     web:

@@ -6,4 +6,6 @@ public interface AlibabaConsumerService {
     public Map query();
 
     public Map user();
+
+    int deleteUserById(Integer id);
 }
